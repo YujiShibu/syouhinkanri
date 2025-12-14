@@ -10,6 +10,14 @@ use App\Models\User;
 
 class ItemController extends Controller
 {
+    public function create(Request $request){
+       return view('item');
+    }
+
+    public function store(Request $request){
+        return redirect('/item');
+    }
+}
     public function index(Request $request)
     {
         $sort = $request->query('sort', 'id');

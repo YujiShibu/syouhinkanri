@@ -21,6 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/item', [App\Http\Controllers\ItemController::class, 'create']);
+Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);
 
 // 商品関連
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');

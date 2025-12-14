@@ -55,4 +55,11 @@ class ItemController extends Controller
 
         return view('items.show', compact('item'));
     }
+
+    public function destroy(Item $item)
+    {
+        $item->delete();
+        
+        return redirect('/items');
+    }
 }

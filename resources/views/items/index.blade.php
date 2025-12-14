@@ -72,7 +72,8 @@ return "<a href='{$url}'>{$label} {$arrow}</a>";
                     </a>
                 </td>
                 <td>
-                    <form action="{{ route('items.destroy', $item->id) }}" method="POST">
+                    <form action="{{ route('items.destroy', $item->id) }}" method="POST"
+                        onsubmit="return confirm('本当に削除しますか？');">
                         @csrf
                         @method('DELETE')
                         <button type="submit">削除</button>

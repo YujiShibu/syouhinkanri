@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
+
+Route::resource('employees', EmployeeController::class);
+
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
@@ -21,6 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/item', [App\Http\Controllers\ItemController::class, 'create']);
 Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);
 
@@ -37,3 +42,4 @@ Route::delete('/items/{item}', [ItemController::class, 'destroy'])->name('items.
 Route::get('/items/{item}/reviews', [ReviewController::class, 'index'])->name('items.reviews.index');
 Route::post('/items/{item}/reviews', [ReviewController::class, 'store'])->name('items.reviews.store');
 Route::get('/reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+

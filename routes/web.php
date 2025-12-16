@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WorkTimeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::delete('/items/{item}', [ItemController::class, 'destroy'])->name('items.
 Route::get('/items/{item}/reviews', [ReviewController::class, 'index'])->name('items.reviews.index');
 Route::post('/items/{item}/reviews', [ReviewController::class, 'store'])->name('items.reviews.store');
 Route::get('/reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+
+//　出退勤関連
+Route::get('/work-times', [WorkTimeController::class, 'index']);

@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
+
+Route::resource('employees', EmployeeController::class);
+
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
@@ -21,6 +25,7 @@ use App\Http\Controllers\WorkTimeController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('/item', [App\Http\Controllers\ItemController::class, 'create']);
 Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);

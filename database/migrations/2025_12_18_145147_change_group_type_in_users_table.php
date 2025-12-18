@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            // 型変更だけを行う
+            // 所属課を「数値 → 文字列」に変更
             $table->string('group')->change();
         });
     }
@@ -16,6 +16,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            // 元に戻す場合
             $table->unsignedBigInteger('group')->change();
         });
     }

@@ -7,8 +7,9 @@ Route::resource('employees', EmployeeController::class);
 
 
 use App\Http\Controllers\ItemController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('users', UserController::class);
 Route::get('/item', [App\Http\Controllers\ItemController::class, 'create']);
 Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);
 

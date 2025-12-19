@@ -8,14 +8,14 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('group')->change();
+            $table->string('group')->nullable()->change();
         });
     }
 
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('group')->change();
+            $table->string('group')->nullable(false)->change();
         });
     }
 };

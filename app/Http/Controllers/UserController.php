@@ -18,10 +18,10 @@ class UserController extends Controller
     public function edit(User $user)
 {
     $groups = [
-        '営業課',
-        '人事部',
-        '総務部',
-        '開発部',
+        1 => '営業課',
+        2 => '人事部',
+        3 => '総務部',
+        4 => '開発部',
     ];
 
     return view('users.edit', compact('user', 'groups'));
@@ -29,26 +29,32 @@ class UserController extends Controller
 
     // 更新
     public function update(Request $request, User $user)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'nullable|min:6',
-        ]);
+{
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'group_id' => 'required|integer',
+        'phone' => 'nullable',
+        'password' => 'nullable|min:6',
+    ]);
 
-        $data = $request->all();
+    $data = $request->only([
+        'name',
+        'email',
+        'group_id',
+        'phone',
+    ]);
 
-        if ($request->filled('password')) {
-            $data['password'] = bcrypt($request->password);
-        } else {
-            unset($data['password']);
-        }
-
-        $user->update($data);
-
-        return redirect()->route('users.index')
-            ->with('success', '更新しました');
+    if ($request->filled('password')) {
+        $data['password'] = bcrypt($request->password);
     }
+
+    $user->update($data);
+
+    return redirect()->route('users.index')
+        ->with('success', '更新しました');
+}
+
 
     // 削除
     public function destroy(User $user)

@@ -13,29 +13,24 @@
         <th>操作</th>
     </tr>
 
-    @foreach ($users as $user)
-    <tr>
-        <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->group ?? '未設定' }}</td>
-        <td>{{ $user->email }}</td>
-        <td>{{ $user->phone ?? '未登録' }}</td>
-
-        <td>
-            <a href="{{ route('users.edit', $user->id) }}">編集</a>
-
-            <form action="{{ route('users.destroy', $user->id) }}"
-                    method="POST"
-                    style="display:inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit"
-                        onclick="return confirm('削除しますか？')">
-                    削除
-                </button>
-            </form>
-        </td>
-    </tr>
-    @endforeach
-</table>
-@endsection
+@foreach ($users as $user)
+<tr>
+    <td>{{ $user->id }}</td>
+    <td>{{ $user->name }}</td>
+    <td>{{ $user->group_name }}</td>
+    <td>{{ $user->email }}</td>
+    <td>{{ $user->phone ?? '未登録' }}</td>
+    <td>
+        <a href="{{ route('users.edit', $user->id) }}">編集</a>
+        <form action="{{ route('users.destroy', $user->id) }}"
+            method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit"
+                    onclick="return confirm('削除しますか？')">
+                削除
+            </button>
+        </form>
+    </td>
+</tr>
+@endforeach

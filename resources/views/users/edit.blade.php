@@ -14,14 +14,26 @@
 
     <div>
         <label>所属課</label><br>
-        <select name="group">
-            <option value="">選択してください</option>
-            <option value="営業課" {{ old('group', $user->group) === '営業課' ? 'selected' : '' }}>営業課</option>
-            <option value="人事課" {{ old('group', $user->group) === '人事課' ? 'selected' : '' }}>人事課</option>
-            <option value="総務課" {{ old('group', $user->group) === '総務課' ? 'selected' : '' }}>総務課</option>
-            <option value="開発課" {{ old('group', $user->group) === '開発課' ? 'selected' : '' }}>開発課</option>
-            <option value="経理課" {{ old('group', $user->group) === '経理課' ? 'selected' : '' }}>経理課</option>
+        <select name="group_id">
+                <option value="">選択してください</option>
+
+                <option value="1" {{ old('group_id', $user->group_id) == 1 ? 'selected' : '' }}>
+                    営業課
+                </option>
+
+                <option value="2" {{ old('group_id', $user->group_id) == 2 ? 'selected' : '' }}>
+                    人事課
+                </option>
+
+                <option value="3" {{ old('group_id', $user->group_id) == 3 ? 'selected' : '' }}>
+                    開発課
+                </option>
+
+                <option value="4" {{ old('group_id', $user->group_id) == 4 ? 'selected' : '' }}>
+                    経理課
+                </option>
         </select>
+
     </div>
 
     <div>

@@ -10,6 +10,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WorkTimeController;
+use App\Http\Controllers\AttendanceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +28,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/item', [App\Http\Controllers\ItemController::class, 'create']);
-Route::post('/item',[App\Http\Controllers\ItemController::class, 'store']);
+Route::post('/item', [App\Http\Controllers\ItemController::class, 'store']);
 
 // 商品関連
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');
@@ -51,3 +52,22 @@ Route::post('/work-times/start', [WorkTimeController::class, 'start'])->name('wo
 Route::post('/work-times/end', [WorkTimeController::class, 'end'])->name('work.end');
 Route::post('/work-times/rest-on', [WorkTimeController::class, 'restOn'])->name('work.rest_on');
 Route::post('/work-times/rest-back', [WorkTimeController::class, 'restBack'])->name('work.rest_back');
+// 出退勤登録関連
+Route::get('/attendances/create', [AttendanceController::class, 'create'])->name('attendances.create');
+Route::post('/attendances/clock-in', [AttendanceController::class, 'clockIn'])->name('attendances.clockIn');
+Route::post('/attendances/break-start', [AttendanceController::class, 'breakStart'])->name('attendances.breakStart');
+Route::post('/attendances/break-end', [AttendanceController::class, 'breakEnd'])->name('attendances.breakEnd');
+Route::post('/attendances/clock-out', [AttendanceController::class, 'clockOut'])->name('attendances.clockOut');
+
+// 出退勤編集関連
+Route::get('/attendances/{attendance}/edit', [AttendanceController::class, 'edit'])->name('attendances.edit');
+Route::put('/attendances/{attendance}', [AttendanceController::class, 'update'])->name('attendances.update');
+
+
+// 出退勤一覧関連
+Route::get('/attendances', [AttendanceController::class, 'index'])->name('attendances.index');
+
+// ルートの一覧を表示するページ（開発が終わったら消します）
+use App\Http\Controllers\RouteListController;
+
+Route::get('/route-list', [RouteListController::class, 'index'])->name('route.list');

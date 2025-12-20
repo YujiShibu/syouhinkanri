@@ -66,3 +66,7 @@ Route::get('/attendances', [AttendanceController::class, 'index'])->name('attend
 use App\Http\Controllers\RouteListController;
 
 Route::get('/route-list', [RouteListController::class, 'index'])->name('route.list');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

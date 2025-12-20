@@ -31,9 +31,15 @@
     </div>
 
     <div>
+    <label>営業所</label><br>
+    <input type="text" name="sales_office" value="{{ old('sales_office') }}">
+    </div>
+
+    <div>
         <label>パスワード</label><br>
         <input type="password" name="password">
     </div>
+    <br>
 
     <button type="submit">登録する</button>
 </form>

@@ -40,8 +40,7 @@ class User extends Authenticatable
         'address',
         'phone',
         
-        // 'group'ではなく
-        // こちらを使用
+        // 'group'ではなくこちらを使用
         'group_id',
 
         'role',

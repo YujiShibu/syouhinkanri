@@ -3,9 +3,6 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>社員一覧</h1>
-    <a href="{{ url('/users/create') }}" class="btn btn-primary">
-        + 新規登録
-    </a>
 </div>
 
 @if (session('success'))

@@ -1,8 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>社員一覧</h1>
+    <a href="{{ route(' users.create ') }}" class="btn btn-primary">
+        + 新規登録
+    </a>
+</div>
 
-<h1>社員一覧</h1>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+<table class="table table-">
+
+
+
 
 <table border="1" cellpadding="8">
     <tr>
@@ -36,4 +51,6 @@
 </tr>
 @endforeach
 
+</table>
 @endsection
+

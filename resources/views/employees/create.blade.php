@@ -21,6 +21,11 @@
     </div>
 
     <div>
+    <label>年齢</label>
+    <input type="number" name="age" min="0" max="120">
+    </div>
+
+    <div>
         <label>メールアドレス</label><br>
         <input type="email" name="email" value="{{ old('email') }}">
     </div>
@@ -31,10 +36,25 @@
     </div>
 
     <div>
-    <label>営業所</label><br>
-    <input type="text" name="sales_office" value="{{ old('sales_office') }}">
+        <label>役職</label>
+        <select name="role">
+            <option value="">選択してください</option>
+            @foreach(\App\Models\User::ROLES as $key => $label)
+                <option value="{{ $key }}" {{ old('role') == $key ? 'selected' : '' }}>
+                   {{ $label }}
+                </option>
+             @endforeach
+        </select>
     </div>
-
+        <div>
+            <label for="sales_office">営業所</label>
+            <input
+                type="text"
+                name="sales_office"
+                id="sales_office"
+                value="{{ old('sales_office') }}"
+            >
+        </div>
     <div>
         <label>パスワード</label><br>
         <input type="password" name="password">

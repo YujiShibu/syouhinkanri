@@ -90,29 +90,32 @@ public function create()
 /**
  * 社員登録処理
  */
+
 public function store(Request $request)
-{
+    {
     $request->validate([
         'name' => 'required',
+        'age'      => 'nullable|integer|min:0|max:120',
         'email' => 'required|email|unique:users',
         'phone' => 'nullable',
+        'role' => 'required|integer',
         'sales_office' => 'required',
         'password' => 'required|min:6',
     ]);
 
     User::create([
-    'name' => $request->name,
-    'email' => $request->email,
-    'phone' => $request->phone,
-    'role' => 2,
-    'sales_office' => $request->sales_office, 
-    'password' => Hash::make($request->password),
-]);
+        'name' => $request->name,
+        'age'      => $request->age,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'role' => $request->role,
+        'sales_office' => $request->sales_office,
+        'password' => Hash::make($request->password),        
+    ]);
 
-
-    return redirect()->route('users.create')
-                     ->with('success', '社員を登録しました');
-}
+        return redirect()->back()->with('success', '社員を登録しました');
+ 
+    }
 
 
 }

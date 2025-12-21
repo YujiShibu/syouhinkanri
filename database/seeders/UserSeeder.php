@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;           // ← これが必要！
-use Illuminate\Support\Facades\Hash; // ← これも必要！
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder  
 {
     public function run(): void
     {
@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'phone' => '090-1111-2222',
             'group_id' => 1,
-            'role' => 1, 
+            'role' => 1,
         ]);
 
         User::create([

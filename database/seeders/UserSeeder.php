@@ -1,31 +1,20 @@
-<?php
-
-namespace Database\Seeders;
-
-use Illuminate\Database\Seeder;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-
-class UserSeeder extends Seeder
+public function run(): void
 {
-    public function run(): void
-    {
-        // 1人目のダミー
-        User::create([
-            'name' => '田中 太郎',
-            'email' => 'tanaka@example.com',
-            'password' => Hash::make('password'),
-            'phone' => '090-1111-2222',
-            'group_id' => 1, // 営業課
-        ]);
+    User::create([
+        'name' => '田中 太郎',
+        'email' => 'tanaka@example.com',
+        'password' => Hash::make('password'),
+        'phone' => '090-1111-2222',
+        'group_id' => 1,
+        'role' => 1, // ここを追加！ (もしエラーが出たら 'user' に書き換えてみてください)
+    ]);
 
-        // 2人目のダミー
-        User::create([
-            'name' => '佐藤 花子',
-            'email' => 'sato@example.com',
-            'password' => Hash::make('password'),
-            'phone' => '080-3333-4444',
-            'group_id' => 4, // 開発部
-        ]);
-    }
+    User::create([
+        'name' => '佐藤 花子',
+        'email' => 'sato@example.com',
+        'password' => Hash::make('password'),
+        'phone' => '080-3333-4444',
+        'group_id' => 4,
+        'role' => 1, // ここを追加！
+    ]);
 }

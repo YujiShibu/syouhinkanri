@@ -13,6 +13,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ROLES = [
+        1 => '管理者',
+        2 => '上長',
+        3 => '一般社員',
+    ];
+
     /**
      * 所属課マスタ（ID → 表示名）
      */
@@ -22,10 +28,8 @@ class User extends Authenticatable
             3 => '開発課',
             4 => '経理課',
     ];
-
-    /**
-     * The attributes that are mass assignable.
-     *
+    
+     /*
      * @var array<int, string>
      */
     protected $fillable = [

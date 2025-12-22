@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -76,4 +78,44 @@ class EmployeeController extends Controller
         return redirect()->route('employees.index')
                         ->with('success', '削除しました');
     }
+
+/**
+ * 社員登録画面表示
+ */
+public function create()
+{
+    return view('employees.create');
+}
+
+/**
+ * 社員登録処理
+ */
+
+public function store(Request $request)
+    {
+    $request->validate([
+        'name' => 'required',
+        'age'      => 'nullable|integer|min:0|max:120',
+        'email' => 'required|email|unique:users',
+        'phone' => 'nullable',
+        'role' => 'required|integer',
+        'sales_office' => 'required',
+        'password' => 'required|min:6',
+    ]);
+
+    User::create([
+        'name' => $request->name,
+        'age'      => $request->age,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'role' => $request->role,
+        'sales_office' => $request->sales_office,
+        'password' => Hash::make($request->password),        
+    ]);
+
+        return redirect()->back()->with('success', '社員を登録しました');
+ 
+    }
+
+
 }

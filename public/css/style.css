@@ -1,9 +1,25 @@
-.edit-card {
-    background: linear-gradient(135deg, #f5faff, #e3f2fd);
-    border: none;
+/* 全体背景（爽やか系グラデーション） */
+body {
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    min-height: 100vh;
 }
 
-.edit-card .form-label {
-    font-weight: 600;
-    color: #333;
+/* 編集カード用 */
+.edit-card {
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
 }
+
+/* 見出し */
+h1 {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+/* フォームラベル */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+

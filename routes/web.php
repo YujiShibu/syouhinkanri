@@ -28,15 +28,13 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.e
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
-<<<<<<< HEAD
-=======
     // Route::get('/users/create', [EmployeeController::class, 'create'])
     //    ->name('users.create');
 
     // Route::post('/users', [EmployeeController::class, 'store'])
     //    ->name('users.store');
 
->>>>>>> 1babcd6 (EmployeeControllerをコメントアウトしました(routes>web.php))
+
 // 商品関連
 Route::get('/item', [ItemController::class, 'create']);
 Route::post('/item', [ItemController::class, 'store']);

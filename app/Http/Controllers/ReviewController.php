@@ -26,7 +26,7 @@ class ReviewController extends Controller
         ]);
 
         $item->reviews()->create([
-            'user_id' => 1, // 仮のユーザーID
+            'user_id' => auth()->id(),
             'rating' => $request->rating,
             'review' => $request->review,
         ]);

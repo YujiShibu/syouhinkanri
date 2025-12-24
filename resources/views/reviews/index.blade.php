@@ -102,7 +102,7 @@
 
     @forelse ($reviews as $review)
         <div class="review">
-            ★ {{ $review->rating }}<br>
+            ★ {{ $review->rating }}（{{ $review->user->name }}）<br>
             {{ $review->review }}
         </div>
     @empty

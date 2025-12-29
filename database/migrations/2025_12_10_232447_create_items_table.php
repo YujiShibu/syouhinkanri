@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id()->index();
-            $table->string('image_path'); // 商品画像
+            $table->string('image_path')->nullable(); // 商品画像
             $table->string('name');       // 商品名
             $table->unsignedBigInteger('price'); // 価格
             $table->unsignedBigInteger('type');  // 分類

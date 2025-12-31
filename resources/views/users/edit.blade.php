@@ -45,10 +45,14 @@
                         <tr>
                             <th class="text-start ps-4">所属課</th>
                             <td>
-                                <input type="text"
-                                    name="group_name"
-                                    value="{{ old('group_name', $user->group_name) }}"
-                                    class="form-control">
+                                <select name="group_id" class="form-select">
+                                    @foreach (\App\Models\User::GROUPS as $key => $label)
+                                    <option value="{{ $key }}"
+                                        @selected(old('group_id', $user->group_id) == $key)>
+                                        {{ $label }}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </td>
                         </tr>
 
@@ -57,10 +61,10 @@
                             <td>
                                 <select name="role" class="form-select">
                                     @foreach (\App\Models\User::ROLES as $key => $label)
-                                        <option value="{{ $key }}"
-                                            @selected(old('role', $user->role) == $key)>
-                                            {{ $label }}
-                                        </option>
+                                    <option value="{{ $key }}"
+                                        @selected(old('role', $user->role) == $key)>
+                                        {{ $label }}
+                                    </option>
                                     @endforeach
                                 </select>
                             </td>
@@ -71,10 +75,10 @@
                             <td>
                                 <select name="sales_office" class="form-select">
                                     @foreach (\App\Models\User::SALES_OFFICES as $key => $label)
-                                        <option value="{{ $key }}"
-                                            @selected(old('sales_office', $user->sales_office) == $key)>
-                                            {{ $label }}
-                                        </option>
+                                    <option value="{{ $key }}"
+                                        @selected(old('sales_office', $user->sales_office) == $key)>
+                                        {{ $label }}
+                                    </option>
                                     @endforeach
                                 </select>
                             </td>

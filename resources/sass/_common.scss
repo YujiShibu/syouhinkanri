@@ -1,14 +1,25 @@
-/* _common.scss */
+/* ===============================
+    ベース（全画面共通）
+=============================== */
+
 body {
     background: linear-gradient(135deg, #f4f7fb 0%, #eef3f9 40%, #ffffff 100%);
 }
 
+/* ===============================
+    共通カード UI
+=============================== */
+
 .app-card {
-    border-radius: 12px;
+    border-radius: 16px;
     background: linear-gradient(180deg, #ffffff, #f7faff);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
+
+/* ===============================
+    ページタイトル
+=============================== */
 
 .page-title {
     font-size: 2.1rem;
@@ -20,16 +31,12 @@ body {
     color: #333;
 }
 
-$primary-color: #0d6efd;
-$primary-hover: #6ea8fe;
+/* ===============================
+    編集画面（フォーム系）
+=============================== */
 
-/* 編集画面 専用 */
 .edit-card {
-    padding: 2.5rem;   
-}
-
-.edit-card .mb-4 {
-    margin-bottom: 1.5rem !important;
+    padding: 2.5rem;
 }
 
 .edit-card .form-label {
@@ -38,7 +45,7 @@ $primary-hover: #6ea8fe;
 }
 
 .edit-card .form-control,
-.edit-card select {
+.edit-card .form-select {
     font-size: 0.95rem;
     padding: 0.6rem 0.75rem;
 }
@@ -47,7 +54,62 @@ $primary-hover: #6ea8fe;
     margin-top: 2rem;
 }
 
-/* main直下の不要な枠線を消す */
+/* ===============================
+    共通：テーブルラッパー
+=============================== */
+
+.app-table-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ===============================
+    共通：フォーム用テーブル
+=============================== */
+
+.app-form-table {
+    margin-bottom: 0;
+}
+
+.app-form-table th {
+    width: 30%;
+    background-color: #f4f8ff;
+    font-weight: 600;
+    color: #555;
+}
+
+.app-form-table td {
+    padding: 0.75rem 1rem;
+}
+
+.app-form-table input,
+.app-form-table select {
+    max-width: 420px;   /* 入力幅を抑える */
+}
+
+/* ===============================
+    共通：管理画面フォーム幅
+=============================== */
+
+.form-compact {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-compact .form-control,
+.form-compact .form-select {
+    font-size: 0.95rem;
+    padding: 0.45rem 0.6rem;
+}
+
+/* ===============================
+    その他微調整
+=============================== */
+
+/* main直下の不要な装飾を除去 */
 main.container,
 main.container > * {
     border: none !important;
@@ -57,7 +119,7 @@ main.container > * {
 
 /* 編集画面 → 一覧ボタン */
 .btn-edit-action {
-    padding: 0.35rem 0.7rem;   
+    padding: 0.35rem 0.7rem;
     font-size: 0.85rem;
     line-height: 1.2;
 }

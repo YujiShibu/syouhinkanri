@@ -12,14 +12,6 @@
     <a href="{{ route('users.index') }}">社員一覧</a>
     @endif
 
-    @if(auth()->check() && auth()->user()->isAdmin())
-    <a href="{{ route('users.create') }}"
-       class="btn btn-primary mb-3">
-        新規登録
-    </a>
-@endif
-
-
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

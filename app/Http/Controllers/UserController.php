@@ -34,33 +34,21 @@ class UserController extends Controller
 
     // 新規登録画面
 
+
     public function create()
-{
-    if (!auth()->check() || !auth()->user()->isAdmin()) {
-        abort(403, '権限がありません');
-    }
+    {
+         //所属課（Userモデルの定数を使用）
+        $groups = User::GROUPS;
 
-    $groups = User::GROUPS;
-    $roles = User::ROLES;
+         //役職
+        $roles = [
+            'admin'    => '管理者',
+            'manager' => '上長',
+            'employee' => '一般社員',
+        ];
 
-    return view('users.create', compact('groups', 'roles'));
-}
-
-
-    //public function create()
-    //{
-        // 所属課（Userモデルの定数を使用）
-        //$groups = User::GROUPS;
-
-        // 役職
-        //$roles = [
-            //'admin'    => '管理者',
-            //'manager' => '上長',
-            //'employee' => '一般社員',
-        //];
-
-        //return view('users.create', compact('groups', 'roles'));
-    //}
+        return view('users.create', compact('groups', 'roles'));
+    }   
 
     // 登録処理
 
